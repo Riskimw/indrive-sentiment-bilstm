@@ -89,20 +89,7 @@ def get_top_ngram(corpus, n=None, ngram_range=(1, 1)):
 # --- LOAD MODEL & TOKENIZER ---
 @st.cache_resource
 def load_bilstm_model():
-    # Load model dengan custom_object_scope buat nge-bypass error
-    from keras.saving import get_custom_objects
-    import keras
-    
-    # Kita hapus parameter 'quantization_config' kalau dia muncul sebagai error
-    # Ini cara 'nakal' buat load model yang versinya beda
-    try:
-        model = load_model('model_bilstm.keras', compile=False)
-    except TypeError as e:
-        # Jika error karena quantization_config, kita coba cara lain
-        # Biasanya model Keras 3 bisa diload kalau kita paksa pakai tf.keras
-        import tensorflow as tf
-        model = tf.keras.models.load_model('model_bilstm.keras', compile=False)
-        
+    model = load_model('model_bilstm.keras')
     with open('tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
     return model, tokenizer
