@@ -89,7 +89,9 @@ def get_top_ngram(corpus, n=None, ngram_range=(1, 1)):
 # --- LOAD MODEL & TOKENIZER ---
 @st.cache_resource
 def load_bilstm_model():
-    model = load_model('model_bilstm.keras')
+    # Tambahkan compile=False di sini bro!
+    model = load_model('model_bilstm.keras', compile=False)
+    
     with open('tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
     return model, tokenizer
