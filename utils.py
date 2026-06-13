@@ -10,6 +10,16 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab')
+
 # --- DOWNLOAD NLTK ---
 @st.cache_resource
 def download_nltk():
