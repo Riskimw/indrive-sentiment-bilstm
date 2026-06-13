@@ -3,6 +3,6 @@ pandas
 numpy
 nltk
 scikit-learn
-tensorflow
+tensorflow-cpu
 matplotlib
 seaborn
