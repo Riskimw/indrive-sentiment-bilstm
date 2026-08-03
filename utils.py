@@ -29,34 +29,98 @@ download_nltk()
 
 # --- KAMUS NORMALISASI ---
 norm_dict = {
-    'maf': 'maaf', 'sat': 'saat', 'pra': 'parah', 'eror':'error', 'god':'good', 'godjob':'goodjob',
-    'manfat':'manfaat', 'bermanfat':'manfaat', 'bgt': 'banget', 'tmpt': 'tempat', 'tdk': 'tidak', 
-    'jln': 'jalan', 'bgus':'bagus', 'bgs':'bagus', 'mntap':'mantap', 'mntp':'mantap',
-    'mantaf':'mantap', 'mantab':'mantap', 'bangus':'bagus', 'mantep':'mantap', 'mantaps':'mantap',
-    'mantul':'mantap', 'mkasih':'terimakasih', 'gercep':'cepat', 'ancur':'hancur',
-    'ngebug':'bug', 'diblokir':'blokir', 'terblokir':'blokir', 'pemblokiran':'blokir',
-    'rugikan':'rugi', 'nolak':'tolak', 'menolak':'tolak', 'ditolak':'tolak', 
-    'menolong':'membantu', 'tertolong':'terbantu', 'merugikan':'rugi', 'dirugikan':'rugi',
-    'jlk': 'jelek', 'butut':'jelek', 'apk': 'aplikasi', 'app': 'aplikasi', 'apknya': 'aplikasi',
-    'sy': 'saya', 'gw': 'saya', 'gue': 'saya', 'aku': 'saya', 'ngk': 'tidak', 'gak': 'tidak', 
-    'ga': 'tidak', 'ora': 'tidak', 'engak':'tidak', 'enggak':'tidak', 'ngak':'tidak',
-    'tp': 'tapi', 'udh': 'sudah', 'blm': 'belum', 'jg': 'juga', 'krn': 'karena', 'trs': 'terus', 
-    'lg': 'lagi', 'yg': 'yang', 'indriver': 'indrive', 'aja': 'saja', 'udah':'sudah', 'gk': 'tidak',
-    'klo': 'kalau', 'jd': 'jadi', 'dpt': 'dapat', 'utk': 'untuk', 'dl': 'dulu', 'dr': 'dari',
-    'ok':'oke', 'anyep':'sepi', "bugnya": "bug", "errornya": "error", "erornya": "eror",
-    "sepinya": "sepi", "murahnya": "murah", 'indri': 'indrive', 'indrivee': 'indrive',
-    'drv': 'driver', 'penumpng': 'penumpang', 'cust': 'pelanggan', 'pelanggannya': 'pelanggan',
-    'cs': 'customer service', 'hrga': 'harga', 'brp': 'berapa', 'mahalin': 'mahal', 'murmer': 'murah',
+  # === PENYELAMATAN EFEK CLEANING (TARUH DI SINI) ===
+    'maf': 'maaf',
+    'sat': 'saat',
+    'pra': 'parah',
+    'eror':'error',
+    'god':'good',
+    'godjob':'goodjob',
+    'manfat':'manfaat',
+    'bermanfat':'manfaat',
+
+    # kata umum / singkatan
+    'bgt': 'banget', 'tmpt': 'tempat', 'tdk': 'tidak', 'jln': 'jalan',
+    'bgus':'bagus', 'bgs':'bagus', 'mntap':'mantap', 'mntp':'mantap',
+    'mantaf':'mantap','mantab':'mantap','bangus':'bagus','mantep':'mantap','mantaps':'mantap',
+    'mantul':'mantap', 'mkasih':'terimakasih','gercep':'cepat','ancur':'hancur',
+    # tambahan
+    'ngebug':'bug','diblokir':'blokir','terblokir':'blokir','diblokir':'blokir','pemblokiran':'blokir',
+    'rugikan':'rugi','nolak':'tolak','menolak':'tolak','ditolak':'tolak','menolong':'membantu','tertolong':'terbantu',
+    'kren':'keren','ngga': 'tidak', 'ngaa': 'tidak', 'nga': 'tidak','jdi': 'jadi', 'jd': 'jadi',
+    'siiip': 'sip', 'siip': 'sip','bosok': 'busuk', 'busok': 'busuk','mksh':'terimakasih','mksih':'terimakasih',
+    # ========
+    'merugikan':'rugi','dirugikan':'rugi',
+    'jlk': 'jelek', 'butut':'jelek',
+    'apk': 'aplikasi', 'app': 'aplikasi', 'apknya': 'aplikasi',
+    'sy': 'saya', 'gw': 'saya', 'gue': 'saya', 'aku': 'saya',
+    'ngk': 'tidak', 'gak': 'tidak', 'ga': 'tidak', 'ora': 'tidak','engak':'tidak', 'enggak':'tidak','ngak':'tidak',
+    'tp': 'tapi', 'udh': 'sudah', 'blm': 'belum',
+    'jg': 'juga', 'krn': 'karena', 'trs': 'terus', 'lg': 'lagi',
+    'yg': 'yang',
+    'indriver': 'indrive',
+    'aja': 'saja',
+    'udah':'sudah', 'gk': 'tidak',
+    'klo': 'kalau',
+    'jd': 'jadi',
+    'dpt': 'dapat',
+    'utk': 'untuk',
+    'dl': 'dulu',
+    'dr': 'dari',
+    'ok':'oke',
+    'anyep':'sepi',
+    "bugnya": "bug",
+    "errornya": "error",
+    "erornya": "eror",
+    "sepinya": "sepi",
+    "murahnya": "murah",
+
+
+    # inDrive
+    'indri': 'indrive', 'indrivee': 'indrive',
+
+    # transport / aktor
+    'drv': 'driver', 'penumpng': 'penumpang',
+    'cust': 'pelanggan', 'pelanggannya': 'pelanggan', 'pelanggannyaa': 'pelanggan',
+    'cs': 'customer service',
+
+    # harga & pembayaran
+    'hrga': 'harga', 'brp': 'berapa', 'mahalin': 'mahal', 'murmer': 'murah',
     'ongkir': 'ongkos', 'byr': 'bayar', 'bayr': 'bayar', 'cash': 'tunai', 'argo': 'harga',
+
+    # perjalanan
     'jrak': 'jarak', 'deket': 'dekat', 'nunggu': 'menunggu', 'nuggu': 'menunggu',
+
+    # keluhan / kondisi
     'btl': 'batal', 'lemot': 'lambat', 'telat': 'terlambat', 'ribet': 'rumit',
-    'censel':'cancel', 'cansel':'cancel', 'elor':'error','pekerjan':'pekerjaan',
+    'censel':'cancel', 'cansel':'cancel','elor':'error', 'eror': 'error', # Direvisi
 }
 
 # --- STOPWORDS HANDLING ---
 stop_words = set(stopwords.words('indonesian'))
 stop_words.update(['sih', 'nih', 'dong', 'lah', 'deh', 'kok', 'yah', 'pun', 'eh', 'ah', 'oh', 'hm', 'ya', 'iya','wkwk','dan','nya','untuk','kalau','kalo','sudah','karena','atau'])
-kata_penting = {'tidak', 'belum', 'kurang', 'jangan', 'bukan', 'tapi', 'sangat', 'terlalu', 'paling', 'lebih', 'cukup', 'sebab', 'jika', 'baik','malah', 'justru', 'padahal', 'namun', 'meski', 'walaupun', 'sempat', 'masih', 'sudah', 'selalu', 'sering', 'jarang', 'masalah'}
+kata_penting = {
+        'tidak',
+    'belum', 'kurang', 'jangan',
+    'bukan', 'tapi',
+    'sangat', 'terlalu', 'paling', 'lebih', 'cukup',
+    'sebab', 'jika',
+    'baik','malah',
+    'justru',
+    'padahal',
+    'namun',
+    'meski',
+    'walaupun',
+    'sempat',
+    'masih',
+    'sudah',
+    'selalu',
+    'sering',
+    'jarang',
+    'masalah',
+    # --- TAMBAHAN BARU HASIL BEDAH EXCEL ---
+    'tepat', 'waktu', 'guna', 'adil', 'berubah', 'berat', 'bisa','banyak',
+}
 stop_words.difference_update(kata_penting)
 
 # --- FUNGSI PREPROCESSING ---
@@ -71,15 +135,28 @@ def text_preprocessing(text):
     normalized_words = [norm_dict.get(word, word) for word in words]
     text = " ".join(normalized_words)
     
-    text = text.replace('very good', 'sangat bagus').replace('ojek online', 'ojol')
-    text = text.replace('tidak bisa', 'gagal').replace('tidak masuk', 'gagal')
-    text = text.replace('belum masuk', 'gagal').replace('top up', 'isi saldo')
-    text = text.replace('the best', 'terbaik').replace('gasopan', 'tidak sopan')
-    text = text.replace('gabaik', 'tidak baik').replace('gajelas', 'tidak jelas')
-    text = text.replace('gaada', 'tidak ada').replace('gabener', 'tidak benar')
-    text = text.replace('cukup bagus', 'bagus').replace('cukup baik', 'baik')
-    text = text.replace('cukup membantu', 'membantu').replace('cukup mahal', 'mahal')
-    text = text.replace('cukup lama', 'lambat').replace('cukup ribet', 'rumit')
+    text = text.replace('very good', 'sangat bagus')
+    text = text.replace('ojek online', 'ojol')
+    text = text.replace('tidak bisa', 'gagal')
+    text = text.replace('tidak masuk', 'gagal')
+    text = text.replace('belum masuk', 'gagal')
+    text = text.replace('top up', 'isi saldo')
+    text = text.replace('the best', 'terbaik')
+    text = text.replace('gasopan', 'tidak sopan')
+    text = text.replace('gabaik', 'tidak baik')
+    text = text.replace('gajelas', 'tidak jelas')
+    text = text.replace('gaada', 'tidak ada')
+    text = text.replace('gabener', 'tidak benar')
+    text = text.replace('gabisa', 'tidak bisa')
+
+
+    text = text.replace('cukup bagus', 'bagus')
+    text = text.replace('cukup baik', 'baik')
+    text = text.replace('cukup membantu', 'membantu')
+
+    text = text.replace('cukup mahal', 'mahal')
+    text = text.replace('cukup lama', 'lambat')
+    text = text.replace('cukup ribet', 'rumit')
     
     tokens = word_tokenize(text)
     tokens = [word for word in tokens if word not in stop_words]
