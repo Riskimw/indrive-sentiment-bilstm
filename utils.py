@@ -128,7 +128,7 @@ def text_preprocessing(text):
     text = text.lower()
     text = re.sub(r'http\S+', '', text)
     text = re.sub(r'[^a-z\s]', ' ', text)
-   text = re.sub(r'(.)\1{2,}', r'\1\1', text)
+    text = re.sub(r'(.)\1+', r'\1', text) 
     text = re.sub(r'\s+', ' ', text).strip()
     
     words = text.split()
