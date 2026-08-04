@@ -43,7 +43,7 @@ st.markdown("""
 # 2. LOAD MODEL & TOKENIZER
 # ==========================================
 model, tokenizer = load_bilstm_model()
-MAX_LENGTH = 100 
+MAX_LENGTH = 93 
 
 # ==========================================
 # 3. HEADER DASHBOARD
