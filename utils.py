@@ -137,9 +137,6 @@ def text_preprocessing(text):
     
     text = text.replace('very good', 'sangat bagus')
     text = text.replace('ojek online', 'ojol')
-    text = text.replace('tidak bisa', 'gagal')
-    text = text.replace('tidak masuk', 'gagal')
-    text = text.replace('belum masuk', 'gagal')
     text = text.replace('top up', 'isi saldo')
     text = text.replace('the best', 'terbaik')
     text = text.replace('gasopan', 'tidak sopan')
