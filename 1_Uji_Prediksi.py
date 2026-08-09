@@ -46,15 +46,7 @@ model, tokenizer = load_bilstm_model()
 MAX_LENGTH = 93
 
 # ==========================================
-# 3. HEADER DASHBOARD
-# ==========================================
-# st.markdown(
-#     "<p style='font-size: 18px; margin-top: 1px; margin-bottom: 15px;'>Uji Prediksi <b>Bidirectional LSTM (Bi-LSTM)</b>.</p>", 
-#     unsafe_allow_html=True
-# )
-
-# ==========================================
-# 4. TATA LETAK UTAMA (2 KOLOM)
+# 3. TATA LETAK UTAMA (2 KOLOM)
 # ==========================================
 col_input, col_result = st.columns([1.1, 0.9], gap="large")
 
@@ -93,6 +85,15 @@ with col_input:
     )
 
     btn_predict = st.button("⚡ Prediksi Sekarang", type="primary", use_container_width=True)
+
+    # --- DISCLAIMER DITAMBAHKAN DI SINI ---
+    st.markdown("""
+    <div style="margin-top: 15px; padding: 12px; border-radius: 8px; background-color: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; font-size: 0.85rem; line-height: 1.5; color: #e5e7eb;">
+        <strong style="color: #fbd38d;">⚠️ Catatan Keterbatasan (Disclaimer)</strong><br>
+        Sistem ini dilatih menggunakan dataset ulasan inDrive dengan akurasi 93%. Meskipun demikian, <b>kesalahan prediksi (misklasifikasi) masih mungkin terjadi</b>. Hal ini umumnya disebabkan oleh ketiadaan kata pada kamus latih (<i>Out-of-Vocabulary</i>), penggunaan bahasa <i>slang</i> ekstrem, atau struktur kalimat ambigu yang sulit dipahami konteksnya oleh mesin.
+    </div>
+    """, unsafe_allow_html=True)
+
 
 with col_result:
     st.markdown("""
