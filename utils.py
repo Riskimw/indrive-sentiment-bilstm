@@ -35,6 +35,7 @@ norm_dict = {
     'pra': 'parah',
     'eror':'error',
     'god':'good',
+    'kerjan':'kerjaan',
     'godjob':'goodjob',
     'manfat':'manfaat',
     'bermanfat':'manfaat',
