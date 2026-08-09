@@ -38,6 +38,7 @@ norm_dict = {
     'godjob':'goodjob',
     'manfat':'manfaat',
     'bermanfat':'manfaat',
+    'mengunakan':'menggunakan',
 
     # kata umum / singkatan
     'bgt': 'banget', 'tmpt': 'tempat', 'tdk': 'tidak', 'jln': 'jalan',
