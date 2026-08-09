@@ -119,6 +119,7 @@ kata_penting = {
     'sering',
     'jarang',
     'masalah',
+    'menggunakan',
     # --- TAMBAHAN BARU HASIL BEDAH EXCEL ---
     'tepat', 'waktu', 'guna', 'adil', 'berubah', 'berat', 'bisa','banyak',
 }
