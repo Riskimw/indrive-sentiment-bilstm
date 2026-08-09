@@ -78,7 +78,7 @@ with col_input:
             st.session_state['example_text'] = "Driver ramah dan cepat datang, tarifnya juga sangat murah!"
     with eg_col2:
         if st.button("😐 Netral", use_container_width=True):
-            st.session_state['example_text'] = "saya memakai aplikasi indrive ini hanya untuk kerjaan sampingan "
+            st.session_state['example_text'] = "saya tiap berangkat sekolah selalu pake aplikasi indrive "
     with eg_col3:
         if st.button("😡 Negatif", use_container_width=True):
             st.session_state['example_text'] = "Aplikasi sering error dan driver sering cancel pesanan!"
