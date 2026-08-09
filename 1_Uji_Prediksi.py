@@ -62,7 +62,7 @@ with col_input:
     st.markdown("""
     <div class="section-header">
         <div class="section-dot"></div>
-        <h3>Input Ulasan Uji Prediksi</h3>
+        <h3>Input Ulasan Uji Model BI-LSTM</h3>
     </div>
     """, unsafe_allow_html=True)
 
