@@ -73,7 +73,7 @@ with col_input:
             st.session_state['example_text'] = "saya tiap berangkat sekolah selalu pake aplikasi indrive "
     with eg_col3:
         if st.button("😡 Negatif", use_container_width=True):
-            st.session_state['example_text'] = "Aplikasi sering error dan driver sering cancel pesanan!"
+            st.session_state['example_text'] = "Awalnya seneng dapet harga murah, eh tapi drivernya nolak terus akhirnya minta cancel, sumpah ngeselin banget!!!!"
 
     # Input Area - Tinggi 150 (Pas, ga terlalu kecil)
     user_input = st.text_area(
@@ -90,7 +90,7 @@ with col_input:
     st.markdown("""
     <div style="margin-top: 15px; padding: 12px; border-radius: 8px; background-color: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; font-size: 0.85rem; line-height: 1.5; color: #e5e7eb;">
         <strong style="color: #fbd38d;">⚠️ Catatan Keterbatasan (Disclaimer)</strong><br>
-        Sistem ini dilatih menggunakan dataset ulasan inDrive dengan akurasi 93%. Meskipun demikian, <b>kesalahan prediksi (misklasifikasi) masih mungkin terjadi</b>. Hal ini umumnya disebabkan oleh ketiadaan kata pada kamus latih (<i>Out-of-Vocabulary</i>), penggunaan bahasa <i>slang</i> ekstrem, atau struktur kalimat ambigu yang sulit dipahami konteksnya oleh mesin.
+        Sistem ini dilatih menggunakan dataset ulasan inDrive dengan akurasi 93%. Meskipun demikian, <b>kesalahan prediksi (misklasifikasi) masih mungkin terjadi</b>. Hal ini umumnya disebabkan oleh ketiadaan kata pada kamus latih, penggunaan bahasa <i>slang</i> ekstrem, atau struktur kalimat ambigu yang sulit dipahami konteksnya oleh mesin.
     </div>
     """, unsafe_allow_html=True)
 
